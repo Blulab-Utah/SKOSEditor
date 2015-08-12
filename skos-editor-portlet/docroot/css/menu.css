@@ -1,0 +1,282 @@
+#mbmcpebul_table {
+	margin: 0px;
+  	padding: 0px;
+  	line-height: 0px;
+  	font-size: 0px;
+  	display: inline-block;
+}
+
+#mbmcpebul_table li a {
+  	color: #ffffff;
+    cursor: pointer;
+    display: block;
+    font-family: 'Calibri';
+    font-size: 17px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 18px;
+    padding: 9px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+#mbmcpebul_table li div.buttonbg {
+  	height: 36px;
+  	width: 95px;
+  	line-height: 0;
+  	background-color: transparent;
+  	border-style: solid;
+  	border-color: #800421;
+  	border-width: 0;
+  	border-radius: 6px;
+  	padding: 0;
+  	box-shadow: none;
+  	text-align: center;
+}
+
+#mbmcpebul_table li:hover div.buttonbg a, #mbmcpebul_table li.expanded a.topitem,
+#mbmcpebul_table li.itemhot a.topitem, #mbmcpebul_table li a:hover {
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+
+#mbmcpebul_table li.expanded div.buttonbg, #mbmcpebul_table li.itemhot div.buttonbg, #mbmcpebul_table li:hover div.buttonbg {
+  background-color: #870522;
+  box-shadow: none;
+  border-color: #800421;
+}
+
+#mbmcpebul_table {
+  padding: 7px;
+  border-style: solid;
+  border-color: #B50831;
+  border-width: 0;
+  border-radius: 6px;
+  background-color: #B50831;
+  box-shadow: none;
+  background-image: url('wrapper_bg.png');
+  background-repeat: repeat-x;
+  background: -moz-linear-gradient(top, #4A4A4A 0%, #2D2D2D 100%);
+  background: -webkit-linear-gradient(top, #4A4A4A 0%, #2D2D2D 100%);
+  background: -ms-linear-gradient(top, #4A4A4A 0%, #2D2D2D 100%);
+  background: linear-gradient(top, #4A4A4A 0%, #2D2D2D 100%);
+}
+
+#mbmcpebul_table ul li a {
+  color: #FFFFFF;
+  font-family: 'Calibri';
+  font-size: 17px;
+  line-height: 15px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  display: block;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+#mbmcpebul_table ul li:hover > a {
+  color: #FFFFFF;
+  font-family: 'Calibri';
+  font-size: 17px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+#mbmcpebul_table ul li.subexpanded a.subexpanded, #mbmcpebul_table ul li.subitemhot a.subitemhot, #mbmcpebul_table ul li a:hover {
+  color: #FFFFFF;
+  font-family: 'Calibri';
+  font-size: 17px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+#mbmcpebul_table ul li:hover, #mbmcpebul_table ul li.subexpanded, #mbmcpebul_table ul li.subitemhot {
+  border-color: transparent;
+  background-color: #4D7502;
+  box-shadow: none;
+}
+
+#mbmcpebul_table ul {
+  margin: 0;
+  border-style: solid;
+  border-color: #870724;
+  border-width: 0;
+  padding: 7px;
+  background: #870724;
+  font-size: 0;
+  border-radius: 6px;
+}
+
+#mbmcpebul_table ul li a {
+  padding: 7px 15px 7px 13px;
+  text-align: left;
+}
+
+#mbmcpebul_table ul li.separator {
+  padding: 7px;
+  cursor: default;
+  background: none;
+  box-shadow: none;
+  border-width: 0;
+}
+
+#mbmcpebul_table ul li.separator div {
+  border-top: 1px solid #608B03;
+  font-size: 0px;
+}
+
+#mbmcpebul_table ul li {
+  border-style: solid;
+  border-color: #870724;
+  border-width: 0;
+  height: auto;
+  width: auto;
+  text-align: left;
+  line-height: 0;
+  font-size: 0;
+  cursor: pointer;
+  float: none;
+  margin: 0 0 0px 0;
+  border-radius: 7px;
+  padding: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+
+#mbmcpebul_table ul {
+  box-shadow: 0 0 5px -1px #333333;
+}
+
+#mbmcpebul_table .spaced_li {
+  margin: 0px 1px 0px 0px;
+}
+
+#mbmcpebul_table a img {
+  border: none;
+}
+
+#mbmcpebul_table li {
+  list-style: none;
+  float: left;
+}
+
+#mbmcpebul_table.css_menu li {
+  position: relative;
+}
+
+#mbmcpebul_table.css_menu ul li:hover > ul {
+  opacity: 1;
+}
+
+#mbmcpebul_table.css_menu li:hover > ul {
+  top: 100%;
+  left: 0;
+  right: auto;
+  opacity: 1;
+}
+
+#mbmcpebul_table.css_menu ul li:hover > ul {
+  top: -0px;
+  left: 100%;
+  right: auto;
+}
+
+#mbmcpebul_table.css_menu ul {
+  transition-duration: 0.3s;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-property:opacity;
+  -webkit-transition-property:opacity;
+  -moz-transition-property:opacity;
+  -ms-transition-property:opacity;
+  opacity: 0;
+}
+
+#mbmcpebul_table ul {
+  position: absolute;
+  top:-99999px;
+  z-index: 4000;
+}
+
+#mbmcpebul_table ul ul {
+  position: absolute;
+  z-index: 5000;
+}
+
+#mbmcpebul_table .submenu_arrow {
+  margin-left: 8px;
+}
+
+#mbmcpebul_table div.arrow { 
+  background-image: url('/skos-editor-portlet/images/ebab_mbmcp_d.png'); 
+  background-repeat: no-repeat; 
+  background-position: right center; 
+  height: 100%; 
+} 
+
+#mbmcpebul_table ul li a.with_arrow { 
+  background-image: url('ebab_mbmcp_c.png'); 
+  background-repeat: no-repeat; 
+  background-position: right center; 
+  padding-right: 30px; 
+} 
+
+#mbmcpebul_table div.gradient36:hover, #mbmcpebul_table li.expanded div.gradient36, #mbmcpebul_table li.itemhot div.gradient36 { 
+  background-image: url('buttonhot_bg.png'); 
+  background-repeat: repeat-x; 
+  background-color: #5F8D07; 
+} 
+
+#mbmcpebul_table div.gradient_button:hover, #mbmcpebul_table li.expanded div.gradient_button, #mbmcpebul_table li.itemhot div.gradient_button { 
+  background: -moz-linear-gradient(top, #96BE4F 0%, #5F8D07 100%); 
+  background: -webkit-linear-gradient(top, #96BE4F 0%, #5F8D07 100%); 
+  background: -ms-linear-gradient(top, #96BE4F 0%, #5F8D07 100%); 
+  background: linear-gradient(top, #96BE4F 0%, #5F8D07 100%); 
+} 
+
+#mbmcpebul_table ul.gradient72 { 
+  background-image: url('menu_bg2.png'); 
+  background-repeat: repeat-x; 
+  background-color: #5D8B03; 
+} 
+
+#mbmcpebul_table ul.gradient130 { 
+  background-image: url('menu_bg1.png'); 
+  background-repeat: repeat-x; 
+  background-color: #5D8B03; 
+} 
+
+#mbmcpebul_table ul.gradient188 { 
+  background-image: url('menu_bg.png'); 
+  background-repeat: repeat-x; 
+  background-color: #5D8B03; 
+} 
+
+#mbmcpebul_table ul.gradient_menu { 
+  background: -moz-linear-gradient(top, #95BD4D 0%, #5D8B03 100%); 
+  background: -webkit-linear-gradient(top, #95BD4D 0%, #5D8B03 100%); 
+  background: -ms-linear-gradient(top, #95BD4D 0%, #5D8B03 100%); 
+  background: linear-gradient(top, #95BD4D 0%, #5D8B03 100%); 
+} 
+
+#mbmcpebul_table li a.button_2, #mbmcpebul_table li div a.button_2 { 
+  padding-right: 22px; 
+} 
+
+
+
+
+
+#mbmcpebul_table {
+	padding: 0;
+    width: 100%;
+	height: 36px;
+}

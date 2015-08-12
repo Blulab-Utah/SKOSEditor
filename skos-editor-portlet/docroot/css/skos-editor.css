@@ -1,0 +1,821 @@
+
+/* file menu */
+#newOverlay, #updateOverlay, #saveOverlay {
+  width: 300px;
+  border: 3px solid #000;
+  background: #fff;
+  padding: 3px;
+  position: absolute;
+}
+
+.menu {
+  position: absolute;
+  width: 150px;
+  background: #FFFFFF;
+  border-color: #DEDEDE #BFBFBF #BFBFBF #DEDEDE;
+  border-style: solid;
+  border-width: 1px;
+}
+.menu ul, .menu li {
+  margin: 0;
+}
+
+.menu li {
+  border-bottom: 1px solid #DEDEDE;
+  display: block;
+  padding: 2px;
+}
+
+.menu li a {
+  display: block;
+  padding: 2px 5px;
+  text-decoration: none;
+  color: #336699;
+}
+
+.menu li a:hover {
+  background: #AAAAAA;
+}
+
+.menu-list {
+	height: 30px;
+	background-color: #CCCCCC;
+	border-radius: 2px;
+}
+
+.menu-list span {
+  background: #CCCCCC;
+  float: left;
+  font-size: 14px;
+  list-style: none;
+  margin-left: 5px;
+  padding: 4px;
+}
+
+.menu-list a {
+  text-decoration: none;
+  color: #336699;
+}
+
+#object-properties-table td.empty-row, #data-properties-table td.empty-row {
+	padding:20px;
+	cellspacing: 20px;
+	height:20px
+}
+
+.rounded-corners {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+}
+
+td, th {
+	border: 1px solid white;
+	border-radius:5px;
+	padding: 2px; 
+    margin: 2px;
+}
+
+
+div.scroll-wrapper { 
+    position: relative; 
+    width: 310px; 
+    padding: 2px; 
+    margin: 2px;    
+    /*border: 3px solid #999;*/
+    border-radius:5px;
+}
+div.scroller { 
+    height: 340px; 
+    overflow: auto;
+    resize:both; 
+}
+
+.dijitTreeRowSelected {
+	background-color: #d4d4d4;
+}
+
+.conceptIcon span.dynatree-icon {
+	background: url("/skos-editor-portlet/images/mini_circle_concept.png") no-repeat;
+  	width: 16px;
+  	height: 16px;
+  	text-align: center;
+  	color: black;
+  	text-decoration: none;
+}
+
+.schemaIcon span.dynatree-icon {
+	background: url("/skos-editor-portlet/images/mini_circle_schema.png") no-repeat;
+  	width: 16px;
+  	height: 16px;
+  	text-align: center;
+  	color: black;
+  	text-decoration: none;
+}
+
+.topConceptIcon span.dynatree-icon {
+	background: url("/skos-editor-portlet/images/mini_circle_topconcept.png") no-repeat;
+  	width: 16px;
+  	height: 16px;
+  	text-align: center;
+  	color: black;
+  	text-decoration: none;
+}
+
+.looseConceptIcon span.dynatree-icon {
+	background: url("/skos-editor-portlet/images/mini_circle_loose_concept.png") no-repeat;
+  	width: 16px;
+  	height: 16px;
+  	text-align: center;
+  	color: black;
+  	text-decoration: none;
+}
+
+.deleteIcon {
+	background: url(/skos-editor-portlet/images/remove.png) no-repeat;
+  	width: 16px;
+  	height: 16px;
+  	float: right;
+  	text-align: center;
+  	color: black;
+  	text-decoration: none;
+	margin-right: 8px;
+}
+
+.site-breadcrumbs { display:none; }
+
+.note {
+	color: #E65322;
+	font-weight: bold;
+}
+
+.required {
+	/*background-color:transparent;
+	border: 1px solid #900;*/
+}
+
+/* NEW STYLES */
+
+.aui .modal-header {
+    background: #45cbf5;
+    color: #ffffff;
+    padding: 9px 15px;
+}
+
+.aui .modal-header h3 {
+    font-size: 15px;
+}
+
+.modal-body form input[type="text"],
+.modal-body form textarea,
+.modal-body form input[type="file"] {
+	width: 100%;
+	padding: 4px 0;
+    text-indent: 5px;
+}
+
+.button-holder {
+    margin: 0;
+}
+
+.modal-body table {
+	width: 100%;
+}
+
+#skosEditor {
+    font-family: 'Calibri';
+    font-size: 16px;
+}
+
+.menu li a {
+    font-size: 12px;
+}
+
+
+
+.ui-dialog .ui-dialog-buttonpane {
+    border: none;
+    margin: 0;
+    padding: 0 5px 5px 0;
+}
+
+.ui-dialog table {
+	width: 90%;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+
+.ui-dialog form {
+	margin: 0;
+}
+
+.ui-dialog table td {
+	position: relative;
+	padding-bottom: 10px;
+}
+
+.ui-dialog table td:first-child {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.ui-dialog input[type="text"],
+.ui-dialog input[type="password"],
+.ui-dialog input[type="file"],
+.ui-dialog textarea,
+.ui-dialog select {
+	font-family: Calibri;
+    font-size: 18px;
+	width: 100%;
+	margin-bottom: 0;
+}
+
+
+
+.skos-dialog-buttons-waiting-block {
+    background: url("/html/themes/_unstyled/images/progress_bar/loading_animation.gif") no-repeat scroll 100% 0 white;
+    float: right;
+    height: 35px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200px;
+	display: none;
+}
+
+.skos-dialog-input-error {
+    background: #ffe0e0;
+	border: 1px solid #ffc7c7;
+	font-size: 12px;
+    border-radius: 3px;
+    color: #990000;
+    cursor: pointer;
+    left: 2px;
+    padding: 5px;
+    position: absolute;
+    text-indent: 5px;
+    top: 2px;
+    width: 100%;
+}
+
+a.skos-upload-url-example {
+	color: #009AE5;
+	text-decoration: underline;
+}
+
+/**
+ * tooltips
+ */
+
+.tooltipster-skos {
+	border-radius: 5px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 14px rgba(0,0,0,0.3);
+	color: #390000;
+}
+.tooltipster-skos .tooltipster-content {
+	font-family: 'Calibri';
+	font-size: 18px;
+	line-height: 16px;
+	padding: 15px 20px;
+}
+
+.blockPage {
+    border-radius: 5px;
+    font-family: Calibri;
+	font-size: 21px;
+	font-weight: bold;
+}
+
+#concepts-label-block {
+	font-size:larger;
+	padding-bottom:10px;
+}
+
+#concepts-label-block {
+	font-size:larger;
+	padding-bottom:10px;
+}
+
+
+.filename-label-block {
+	background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+    color: #699614;
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 5px;
+	position: relative;
+	bottom: 1px;
+	text-shadow: none;
+}
+
+#treeParentDiv {
+	margin-top: -20px;
+}
+
+.contextMenu {
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px #8f8f8f;
+	font-size: 15px;
+	color: #000000;
+}
+
+.contextMenu LI {
+    border-bottom: 1px solid #ffffff;
+    list-style: none outside none;
+    margin: 0;
+    padding: 5px 5px 5px 0;
+}
+
+#object-properties-table, 
+#data-properties-table {
+	margin: 0 auto;
+	width: 99%;
+}
+
+#object-properties-table td, #data-properties-table td {
+	border-bottom: 1px solid #f5f5f5;
+    padding: 4px 0 6px 10px;
+}
+
+#object-properties-table a,
+#data-properties-table a {
+    color: #000000;
+}
+
+#object-properties-table a:hover,
+#data-properties-table a:hover {
+    color: #009ae5;
+	text-decoration: underline;
+}
+
+.skos-editor {
+	width: 100%;
+}
+
+.ui-dialog input[type="text"],
+.ui-dialog input[type="password"] {
+    padding: 5px 0;
+    text-indent: 8px;
+}
+
+.ui-dialog select {
+	padding: 0;
+    text-indent: 2px;
+}
+
+.skos-wizard-page {
+	float: left;
+	width: 100%;
+}
+
+#skos-wizard-page-2 {
+	width: 0;
+}
+
+
+
+.language-info {
+	background: #ffffff;
+	border: 1px solid lightblue;
+	border-radius: 3px;
+	float: left;
+	font-size: 13px !important;
+	height: 8px;
+	line-height: 7px;
+	margin-left: 10px;
+	padding: 5px;
+	position: relative;
+	text-align: right;
+}
+
+.language-info img {
+	border: 1px solid #DDDDDD;
+	bottom: 2px;
+	float: left;
+	font-size: 14px !important;
+	height: 12px;
+	margin-right: 4px;
+	position: relative;
+	width: 18px;
+}
+
+#object-properties-table tr, 
+#data-properties-table tr {
+	border-bottom: 1px solid #f8f8f8;
+	padding: 5px 0 5px 10px;
+	font-size: 16px;
+}
+
+#object-properties-table a, 
+#data-properties-table a {
+	font-size: 16px;
+}
+
+
+.skos-node {
+	margin-left: 20px;
+	margin-bottom: 7px;
+    margin-top: 7px;
+}
+
+.skos-node-header span {
+	float: left;
+    height: 20px;
+    margin-left: 0;
+	margin-right: 5px;
+    position: relative;
+    width: 20px;
+	cursor: pointer;
+}
+
+.skos-node-header span:first-child {
+	margin-left: 5px;
+}
+
+.skos-node-header span:hover {
+	opacity: 0.8;
+}
+
+.skos-node a {
+	color: #343434;
+}
+
+.skos-node a:focus {
+	outline: none;
+}
+
+.schema {
+    background: url("/skos-editor-portlet/images/mini_circle_schema.png") no-repeat scroll 0 2px;
+}
+
+.topConcept {
+    background: url("/skos-editor-portlet/images/mini_circle_topconcept.png") no-repeat scroll 0 2px;
+}
+
+.concept {
+    background: url("/skos-editor-portlet/images/mini_circle_concept.png") no-repeat scroll 0 2px;
+}
+
+.expandNode {
+	background: url("/skos-editor-portlet/images/expand.gif") no-repeat scroll 0 3px;
+}
+
+.collapseNode {
+	background: url("/skos-editor-portlet/images/collapse.gif") no-repeat scroll 0 3px;
+}
+
+.selected-node {
+	background: papayawhip;
+	border-radius: 5px;
+	box-shadow: none;
+	width: 99%;
+}
+
+#object-properties-table th, #data-properties-table th {
+    background: wheat;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 4px;
+    color: #343434;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 5px 0;
+    text-align: left;
+    text-indent: 10px;
+    text-shadow: 1px 1px 0 #ffffff;
+}
+
+.selected-node a:hover, 
+.selected-node a:focus {
+	color: #343434;
+	text-decoration: none;
+	text-shadow: 1px 1px 0 #ffffff;
+}
+
+.skos-editor div {
+	font-family: Calibri;
+	font-size: 17px;
+}
+
+.skos-editor-content-block {
+	border: 1px solid #EEEEEE; 
+	border-radius: 4px;
+	height: 400px;
+	overflow: auto;
+}
+
+#object-properties-table div,
+#data-properties-table div {
+	max-width: 500px; 
+	word-wrap: break-word; 
+	overflow: hidden;
+}
+
+.skos-dialog-buttons-block {
+	width: 100%;
+	position: relative;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+
+.skos-dialog-buttons-block button:first-child {
+	float: left;
+}
+
+.skos-dialog-buttons-block button {
+	float: right;
+}
+
+.skos-dialog-buttons-block a {
+	color: sienna; 
+	border-bottom: 1px dotted;
+}
+
+.skos-dialog-buttons-block a:hover {
+	text-decoration: none;
+}
+
+.skos-edit-popup {
+	display: none;
+}
+
+.ui-widget-overlay {
+    background: #000000;
+    opacity: 0.5;
+}
+
+/*.ui-dialog .ui-dialog-titlebar {
+    display: none;
+}*/
+
+.ui-dialog-titlebar {
+    background: #45cbf5;
+    border: none;
+    color: #ffffff;
+	border-radius: 0;
+}
+
+#concepts-label-block,
+#relations-label-block,
+#linguistics-label-block,
+.ui-dialog-titlebar {
+	/*background: -moz-linear-gradient(top, #96BE4F 0%, #5F8D07 100%); 
+  	background: -webkit-linear-gradient(top, #96BE4F 0%, #5F8D07 100%); 
+  	background: -ms-linear-gradient(top, #96BE4F 0%, #5F8D07 100%); 
+  	background: linear-gradient(top, #96BE4F 0%, #5F8D07 100%); */
+	border-radius: 4px;
+    color: #ffffff;
+    font-size: 19px;
+    padding: 10px;
+	margin-bottom: 5px;
+	/*text-shadow: 1px 1px 1px #000000;*/
+}
+
+
+
+.ui-dialog {
+    padding: 0;
+	border: 2px solid sienna;
+    border-radius: 6px;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+.ui-dialog .ui-dialog-titlebar {
+	background: sienna;
+	border: 1px solid white;
+	border-radius: 5px 5px 0 0;
+	color: #ffffff;
+	padding: 6px 0 9px 15px;
+	font-size: 14px;
+}
+
+.ui-dialog .ui-dialog-titlebar-close {
+    margin: -8px 0 0;
+}
+
+.addIcon {
+    background: url("/skos-editor-portlet/images/expand.gif") no-repeat scroll 0 0 #ffffff;
+    float: right;
+    height: 14px;
+    margin-right: 9px;
+    margin-top: 3px;
+    text-align: center;
+    width: 14px;
+}
+
+#mbmcpebul_table {
+    background: sienna;
+    border-color: #b50831;
+}
+
+#mbmcpebul_table ul.gradient_menu {
+    background: wheat;
+}
+
+#mbmcpebul_table ul li a {
+    color: sienna;
+}
+
+#mbmcpebul_table li.expanded div.buttonbg, #mbmcpebul_table li.itemhot div.buttonbg, #mbmcpebul_table li:hover div.buttonbg {
+    background-color: #870522;
+    border-color: #800421;
+}
+
+#mbmcpebul_table ul li:hover, #mbmcpebul_table ul li.subexpanded, #mbmcpebul_table ul li.subitemhot {
+    background-color: sienna;
+}
+
+#mbmcpebul_table div.gradient_button:hover, #mbmcpebul_table li.expanded div.gradient_button, #mbmcpebul_table li.itemhot div.gradient_button {
+    background: sienna;
+}
+
+table.skos-table {
+	width: 100%;
+	color: #5b5b5b;
+    margin-top: 0;
+	border-collapse: initial;
+	font-size: 14px;
+}
+
+table.skos-table thead th {
+	background: wheat;
+	border-right: 1px solid #ffffff;
+	border-top: 1px solid wheat;
+	color: sienna;
+	border-radius: 0;
+	font-weight: normal;
+    padding: 5px 0;
+}
+
+table.skos-table thead th:first-child {
+	border-left: 1px solid wheat;
+}
+
+table.skos-table tbody td {
+	border-radius: 0;
+	border: 1px solid wheat;
+	border-top: none;
+	border-left: none;
+	text-align: center;
+	border-radius: 0;
+	padding: 5px 0;
+}
+
+table.skos-table tbody td:first-child {
+	border-left: 1px solid wheat;
+}
+
+table.skos-table tbody td a {
+	color: #009ae5;
+}
+
+.aui select {
+	height: auto;
+    line-height: initial;
+    padding: 3px 0 4px;
+	cursor: pointer;
+}
+
+.aui input[type="text"],
+.aui input[type="password"],
+.aui textarea {
+    padding: 5px 0 7px;
+	cursor: pointer;
+}
+
+.aui input[type="text"]:focus, .aui input[type="text"]:active,
+.aui input[type="password"]:focus, .aui input[type="password"]:active,
+.aui select:focus, .aui select:active,
+.aui textarea:focus, .aui textarea:active {
+	border: 1px solid wheat;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px wheat;
+}
+
+.skos-edit-popup div.error-box {
+    background: none repeat scroll 0 0 crimson;
+    border-radius: 4px;
+    color: #ffffff;
+    display: block;
+    font-size: 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 8px 15px;
+	display: none;
+}
+
+.ui-widget-header .ui-icon,
+.ui-widget-header .ui-icon:hover {
+    background: url("/skos-editor-portlet/images/collapse.gif") no-repeat scroll 0 0 #ffffff;
+    height: 14px;
+    width: 14px;
+}
+
+.skos-table tbody.vertical tr:first-child td:first-child {
+	border-radius: 5px 0 0 0;
+}
+
+.skos-table tbody.vertical tr:first-child td:last-child {
+	border-radius: 0 5px 0 0;
+	border-top: 1px solid wheat;
+}
+
+.skos-table tbody.vertical tr:last-child td:first-child {
+	border-radius: 0 0 0 5px;
+}
+
+.skos-table tbody.vertical tr:last-child td:last-child {
+	border-radius: 0 0 5px 0;
+}
+
+.skos-table tbody.vertical td:first-child {
+  	background: wheat;
+	border-bottom: 1px solid #FFFFFF;
+    padding-right: 10px;
+    text-align: right;
+	width: 35%;
+}
+
+.skos-table tbody.vertical tr:last-child td:first-child {
+	border-bottom: none;
+}
+
+.skos-table tbody.vertical td {
+    padding: 10px;
+    vertical-align: middle;
+	text-align: center;
+    text-indent: 0;
+}
+
+.skos-table tbody.vertical td:last-child {
+    padding: 5px;
+    text-align: center;
+	text-indent: 0;
+}
+
+.aui textarea {
+    cursor: pointer;
+    padding: 5px 0 0 10px;
+    width: 97%;
+	min-height: 30px;
+}
+
+.aui h4 {
+    color: sienna;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    background: none;
+    border: 1px solid transparent;
+}
+
+.quick-message {
+	opacity: 0;
+    background: tomato;
+    border: 1px solid red;
+    border-radius: 4px;
+    color: #ffffff;
+    float: right;
+    font-size: 13px;
+    padding: 0 10px;
+}
+
+#skos-history table.skos-table thead th,
+#skos-history table.skos-table tbody td {
+	padding: 7px 0 5px;
+}
+
+#skos-history span.history-scheme {
+	border-bottom: 1px dotted;
+	color: seagreen;
+}
+
+#skos-history span.history-concept {
+	border-bottom: 1px dotted;
+	color: sienna;
+}
+
+#skos-history span.history-assertion {
+	border-bottom: 1px dotted;
+	color: magenta;
+}
+
+#skos-history span.history-label {
+	border-bottom: 1px dotted;
+	color: royalblue;
+}
+
+*:focus,
+*:active {
+    outline: 0 !important;
+}
+
+.skos-locked {
+	background: url("/skos-editor-portlet/images/locked.gif") no-repeat scroll 0 2px;
+}

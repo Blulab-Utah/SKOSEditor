@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="edu.ucsd.nlp.service.ObjectHistoryLocalService" class="edu.ucsd.nlp.service.impl.ObjectHistoryLocalServiceImpl" />
+	<bean id="edu.ucsd.nlp.service.persistence.ObjectHistoryPersistence" class="edu.ucsd.nlp.service.persistence.ObjectHistoryPersistenceImpl" parent="basePersistence" />
+	<bean id="edu.ucsd.nlp.service.SharedFileLocalService" class="edu.ucsd.nlp.service.impl.SharedFileLocalServiceImpl" />
+	<bean id="edu.ucsd.nlp.service.persistence.SharedFilePersistence" class="edu.ucsd.nlp.service.persistence.SharedFilePersistenceImpl" parent="basePersistence" />
+	<bean id="edu.ucsd.nlp.service.SKOSCollaborationEntryLocalService" class="edu.ucsd.nlp.service.impl.SKOSCollaborationEntryLocalServiceImpl" />
+	<bean id="edu.ucsd.nlp.service.persistence.SKOSCollaborationEntryPersistence" class="edu.ucsd.nlp.service.persistence.SKOSCollaborationEntryPersistenceImpl" parent="basePersistence" />
+	<bean id="edu.ucsd.nlp.service.SKOSFileLocalService" class="edu.ucsd.nlp.service.impl.SKOSFileLocalServiceImpl" />
+	<bean id="edu.ucsd.nlp.service.persistence.SKOSFilePersistence" class="edu.ucsd.nlp.service.persistence.SKOSFilePersistenceImpl" parent="basePersistence" />
+	<bean id="edu.ucsd.nlp.service.SKOSSettingLocalService" class="edu.ucsd.nlp.service.impl.SKOSSettingLocalServiceImpl" />
+	<bean id="edu.ucsd.nlp.service.persistence.SKOSSettingPersistence" class="edu.ucsd.nlp.service.persistence.SKOSSettingPersistenceImpl" parent="basePersistence" />
+</beans>

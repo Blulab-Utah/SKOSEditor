@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="edu.ucsd.nlp.model.ObjectHistory">
+		<field name="id" type="long" />
+		<field name="skosFileId" type="long" />
+		<field name="userId" type="long" />
+		<field name="recorded" type="Date" />
+		<field name="type" type="String" />
+		<field name="schemeURI" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="conceptURI" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="value" type="String" />
+		<field name="objectType" type="String" />
+		<field name="objectType2" type="String" />
+		<field name="lang" type="String" />
+		<field name="details" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+	</model>
+	<model name="edu.ucsd.nlp.model.SharedFile">
+		<field name="id" type="long" />
+		<field name="skosFileId" type="long" />
+		<field name="sharedBy" type="long" />
+		<field name="sharedWith" type="long" />
+		<field name="sharedOn" type="Date" />
+		<field name="status" type="int" />
+		<field name="access" type="int" />
+	</model>
+	<model name="edu.ucsd.nlp.model.SKOSCollaborationEntry">
+		<field name="id" type="long" />
+		<field name="skosFileId" type="long" />
+		<field name="userId" type="long" />
+		<field name="updateType" type="String" />
+		<field name="schemeURI" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="conceptURI" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="value" type="String" />
+		<field name="type" type="String" />
+		<field name="type2" type="String" />
+		<field name="lang" type="String" />
+	</model>
+	<model name="edu.ucsd.nlp.model.SKOSFile">
+		<field name="skosFileId" type="long" />
+		<field name="userId" type="long" />
+		<field name="parentId" type="long" />
+		<field name="lastModifiedBy" type="long" />
+		<field name="created" type="Date" />
+		<field name="modified" type="Date" />
+		<field name="name" type="String" />
+		<field name="contents" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="version" type="double" />
+	</model>
+	<model name="edu.ucsd.nlp.model.SKOSSetting">
+		<field name="skosSettingId" type="long" />
+		<field name="userId" type="long" />
+		<field name="name" type="String" />
+		<field name="value" type="String" />
+	</model>
+</model-hints>

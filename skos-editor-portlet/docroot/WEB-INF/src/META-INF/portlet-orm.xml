@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="edu.ucsd.nlp.model.impl.ObjectHistoryModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="skosFileId" />
+			<basic name="userId" />
+			<basic name="recorded">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="type">
+				<column name="TYPE_" />
+			</basic>
+			<basic name="schemeURI" />
+			<basic name="conceptURI" />
+			<basic name="value" />
+			<basic name="objectType" />
+			<basic name="objectType2" />
+			<basic name="lang" />
+			<basic name="details" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="edu.ucsd.nlp.model.impl.SharedFileModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="skosFileId" />
+			<basic name="sharedBy" />
+			<basic name="sharedWith" />
+			<basic name="sharedOn">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="status" />
+			<basic name="access">
+				<column name="ACCESS_" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="edu.ucsd.nlp.model.impl.SKOSCollaborationEntryModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="skosFileId" />
+			<basic name="userId" />
+			<basic name="updateType" />
+			<basic name="schemeURI" />
+			<basic name="conceptURI" />
+			<basic name="value" />
+			<basic name="type">
+				<column name="TYPE_" />
+			</basic>
+			<basic name="type2" />
+			<basic name="lang" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="edu.ucsd.nlp.model.impl.SKOSFileModelImpl">
+		<attributes>
+			<id name="skosFileId" />
+			<basic name="userId" />
+			<basic name="parentId" />
+			<basic name="lastModifiedBy" />
+			<basic name="created">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modified">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="name" />
+			<basic name="contents" />
+			<basic name="version" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="edu.ucsd.nlp.model.impl.SKOSSettingModelImpl">
+		<attributes>
+			<id name="skosSettingId" />
+			<basic name="userId" />
+			<basic name="name" />
+			<basic name="value" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="edu.ucsd.nlp.model.impl.ObjectHistoryImpl" name="ObjectHistory">
+		<table name="SKOS_ObjectHistory" />
+		<attributes />
+	</entity>
+	<entity class="edu.ucsd.nlp.model.impl.SharedFileImpl" name="SharedFile">
+		<table name="SKOS_SharedFile" />
+		<attributes />
+	</entity>
+	<entity class="edu.ucsd.nlp.model.impl.SKOSCollaborationEntryImpl" name="SKOSCollaborationEntry">
+		<table name="SKOS_CollaborationEntry" />
+		<attributes />
+	</entity>
+	<entity class="edu.ucsd.nlp.model.impl.SKOSFileImpl" name="SKOSFile">
+		<table name="SKOS_File" />
+		<attributes />
+	</entity>
+	<entity class="edu.ucsd.nlp.model.impl.SKOSSettingImpl" name="SKOSSetting">
+		<table name="SKOS_Setting" />
+		<attributes />
+	</entity>
+</entity-mappings>

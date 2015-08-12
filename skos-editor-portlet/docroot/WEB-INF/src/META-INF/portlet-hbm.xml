@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="edu.ucsd.nlp.model.ObjectHistory" />
+	<import class="edu.ucsd.nlp.model.SharedFile" />
+	<import class="edu.ucsd.nlp.model.SKOSCollaborationEntry" />
+	<import class="edu.ucsd.nlp.model.SKOSFile" />
+	<import class="edu.ucsd.nlp.model.SKOSSetting" />
+	<class name="edu.ucsd.nlp.model.impl.ObjectHistoryImpl" table="SKOS_ObjectHistory">
+		<cache usage="read-write" />
+		<id name="id" column="id_" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="skosFileId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="recorded" type="org.hibernate.type.TimestampType" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="type_" />
+		<property name="schemeURI" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="conceptURI" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="value" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="objectType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="objectType2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="lang" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="details" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="edu.ucsd.nlp.model.impl.SharedFileImpl" table="SKOS_SharedFile">
+		<cache usage="read-write" />
+		<id name="id" column="id_" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="skosFileId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="sharedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="sharedWith" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="sharedOn" type="org.hibernate.type.TimestampType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="access" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="access_" />
+	</class>
+	<class name="edu.ucsd.nlp.model.impl.SKOSCollaborationEntryImpl" table="SKOS_CollaborationEntry">
+		<cache usage="read-write" />
+		<id name="id" column="id_" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="skosFileId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="updateType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="schemeURI" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="conceptURI" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="value" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="type_" />
+		<property name="type2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="lang" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="edu.ucsd.nlp.model.impl.SKOSFileImpl" table="SKOS_File">
+		<cache usage="read-write" />
+		<id name="skosFileId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="parentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="lastModifiedBy" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="created" type="org.hibernate.type.TimestampType" />
+		<property name="modified" type="org.hibernate.type.TimestampType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="contents" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="version" type="com.liferay.portal.dao.orm.hibernate.DoubleType" />
+	</class>
+	<class name="edu.ucsd.nlp.model.impl.SKOSSettingImpl" table="SKOS_Setting">
+		<cache usage="read-write" />
+		<id name="skosSettingId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="value" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

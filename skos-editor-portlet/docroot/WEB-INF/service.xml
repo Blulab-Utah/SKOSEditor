@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
+<service-builder package-path="edu.ucsd.nlp">
+
+	<author>http://nlp-app.ucsd.edu</author>
+
+	<namespace>SKOS</namespace>
+
+	<entity name="SKOSFile" local-service="true" remote-service="false" table="SKOS_File">
+
+		<column name="skosFileId" type="long" primary="true" /><!-- primary key -->
+		
+		<column name="userId" type="long" /><!-- foreign key for User -->
+		<column name="parentId" type="long" /><!-- foreign key for SKOSFile -->
+		<column name="lastModifiedBy" type="long" /><!-- foreign key for User -->
+
+		<column name="created" type="Date" />
+		<column name="modified" type="Date" />
+		<column name="name" type="String" />
+		<column name="contents" type="String" />
+		<column name="version" type="double" />
+
+		<finder name="User" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="UserParent" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="parentId" />
+		</finder>
+
+	</entity>
+
+	<entity name="SKOSSetting" local-service="true" remote-service="false" table="SKOS_Setting">
+
+		<column name="skosSettingId" type="long" primary="true" /><!-- primary key -->
+
+		<column name="userId" type="long" /><!-- foreign key for User -->
+
+		<column name="name" type="String" />
+		<column name="value" type="String" />
+
+		<finder name="User" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="UserName" return-type="SKOSSetting">
+			<finder-column name="userId" />
+			<finder-column name="name" />
+		</finder>
+
+	</entity>
+
+	<entity name="SharedFile" local-service="true" remote-service="false" table="SKOS_SharedFile">
+
+		<column name="id" type="long" primary="true" /><!-- primary key -->
+
+		<column name="skosFileId" type="long" /><!-- foreign key for SKOSFile -->
+		<column name="sharedBy" type="long" /><!-- foreign key for User_ -->
+		<column name="sharedWith" type="long" /><!-- foreign key for User_ -->
+		<column name="sharedOn" type="Date" />
+		<column name="status" type="int" />
+		<column name="access" type="int" />
+
+		<finder name="File" return-type="Collection">
+			<finder-column name="skosFileId" />
+		</finder>
+		<finder name="SharedBy" return-type="Collection">
+			<finder-column name="sharedBy" />
+		</finder>
+		<finder name="SharedWith" return-type="Collection">
+			<finder-column name="sharedWith" />
+		</finder>
+		<finder name="FileSharedWith" return-type="SharedFile">
+			<finder-column name="skosFileId" />
+			<finder-column name="sharedWith" />
+		</finder>
+
+	</entity>
+
+	<entity name="ObjectHistory" local-service="true" remote-service="false" table="SKOS_ObjectHistory">
+
+		<column name="id" type="long" primary="true" /><!-- primary key -->
+
+		<column name="skosFileId" type="long" /><!-- foreign key for SKOSFile -->
+		<column name="userId" type="long" /><!-- foreign key for User_ -->
+		
+		<column name="recorded" type="Date" />
+		<column name="type" type="String" />
+
+		<column name="schemeURI" type="String" />
+		<column name="conceptURI" type="String" />
+		<column name="value" type="String" />
+		<column name="objectType" type="String" />
+		<column name="objectType2" type="String" />
+		<column name="lang" type="String" />
+		<column name="details" type="String" />
+
+		<finder name="File" return-type="Collection">
+			<finder-column name="skosFileId" />
+		</finder>
+		<finder name="FileUser" return-type="Collection">
+			<finder-column name="skosFileId" />
+			<finder-column name="userId" />
+		</finder>
+		<finder name="FileUserType" return-type="ObjectHistory">
+			<finder-column name="skosFileId" />
+			<finder-column name="userId" />
+			<finder-column name="type" />
+		</finder>
+		<finder name="FileTypeConceptURI" return-type="Collection">
+			<finder-column name="skosFileId" />
+			<finder-column name="type" />
+			<finder-column name="conceptURI" />
+		</finder>
+
+	</entity>
+	
+	<entity name="SKOSCollaborationEntry" local-service="true" remote-service="false" table="SKOS_CollaborationEntry">
+
+		<column name="id" type="long" primary="true" /><!-- primary key -->
+
+		<column name="skosFileId" type="long" /><!-- foreign key for SKOSFile -->
+		<column name="userId" type="long" /><!-- foreign key for User_ -->
+
+		<column name="updateType" type="String" />
+		<column name="schemeURI" type="String" />
+		<column name="conceptURI" type="String" />
+		<column name="value" type="String" />
+		<column name="type" type="String" />
+		<column name="type2" type="String" />
+		<column name="lang" type="String" />
+
+		<finder name="FileUser" return-type="Collection">
+			<finder-column name="skosFileId" />
+			<finder-column name="userId" />
+		</finder>
+
+	</entity>
+
+</service-builder>
