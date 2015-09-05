@@ -32,15 +32,29 @@
 	var ajaxURL = '<%= ajaxURL.toString() %>';
 </script>
 
-<div class="alert alert-help" style='text-align: center; padding-top: 20px; padding-bottom: 10px; line-height: 30px;'> 
-	<p>Welcome to SKOS Editor Portlet</p>
-	<p>Please log in to the system to get access to this portlet</p>
-	<p>
-		<button class="btn btn-primary" type="button" onclick='location.href="<%= themeDisplay.getURLSignIn() %>";'>Log In</button>&nbsp;&nbsp;or&nbsp;&nbsp;
-		<button class="btn btn-primary" type="button" onclick='skos_OpenRegister();'>Create Account</button>
-	</p>
-</div>
+<style type='text/css'>
+	
+	
 
+</style>
+
+<div class="alert alert-help" style="text-align: center; width: 415px; line-height: 30px; border-radius: 5px; margin: 10px auto 20px; box-shadow: 5px 5px 7px rgb(204, 204, 204); padding: 20px;"> 
+	<h3><span style="color: rgb(105, 105, 105);">Welcome to</span> SKOS Editor</h3> 
+	<h4 style="color: rgb(105, 105, 105); margin-bottom: 20px; line-height: 25px; text-align: center;">SKOS Editor is a plugin for Liferay that allows you to create and edit thesauri or similar artefacts represented in the <span style="border-bottom: 1px solid;">S</span>imple <span style="border-bottom: 1px solid;">K</span>nowledge <span style="border-bottom: 1px solid;">O</span>rganisation <span style="border-bottom: 1px solid;">S</span>ystem</h4> 
+	<p> 
+	  <button onclick="location.href='<%= themeDisplay.getURLSignIn() %>';" type="button" class="btn btn-primary">Log In</button>&nbsp;&nbsp;or&nbsp;&nbsp; 
+	  <button onclick="skos_OpenRegister();" type="button" class="btn btn-primary">Create Account</button> 
+	</p>
+	<hr>
+	<h4 style="margin-top: 20px; margin-bottom: 10px;">Need Help?</h4>
+	<div>
+		<a target="_blank" href="${pageContext.request.contextPath}/help/SKOS.html" title='Online Help'><img src="${pageContext.request.contextPath}/images/ie.png" /></a>
+		&nbsp;&nbsp;
+		<a target="_blank" href="${pageContext.request.contextPath}/help/SKOS.docx" title='Help in Word format'><img src="${pageContext.request.contextPath}/images/word.png" /></a>
+		&nbsp;&nbsp;
+		<a target="_blank" href="https://github.com/Blulab-Utah" title='Projects on GitHub'><img src="${pageContext.request.contextPath}/images/github.jpg" style='border: 1px solid #CCCCCC; border-radius: 5px; box-shadow: 3px 3px 2px #bdbdbd;' /></a>
+	</div> 
+</div>
 
 <div id="register-popup" class='skos-edit-popup'>
 	<div class='error-box'></div>

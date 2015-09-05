@@ -47,7 +47,10 @@
 		}
 		
 		this.load = function() {
+			$('#skos-wizard-parent').html($('#tree-concepts').html());
 			$('#skos-wizard-parent').val($('#selected-node-' + skos_SelectedNodeID).attr('skos-node-uri'));
+			
+			$('#skos-wizard-popup').find('.skos-dialog-buttons-waiting-block').hide();
 			
 			$('#skos-wizard-popup').find('textarea').val('');
 			skos_AddTabSupport('skos-wizard-hierarchy');

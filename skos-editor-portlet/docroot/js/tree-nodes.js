@@ -5,7 +5,6 @@ var skos_IsNodeLocked = false;
 function skos_InitTreePopups() {
 	$('#edit-tree-node-popup').find('#tree-add-top-concept-scheme').html($('#tree-schemes').html());
 	$('#edit-tree-node-popup').find('#tree-move-concept-uri').html($('#tree-concepts').html());
-	$('#skos-wizard-parent').html($('#tree-concepts').html());
 }
 
 function skos_OnClickNode(obj) {

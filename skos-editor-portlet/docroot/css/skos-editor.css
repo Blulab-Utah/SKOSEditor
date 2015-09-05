@@ -150,9 +150,12 @@ div.scroller {
 	font-weight: bold;
 }
 
-.required {
-	/*background-color:transparent;
-	border: 1px solid #900;*/
+span.required {
+	color: red;
+	font-weight: bold; 
+	position: relative; 
+	top: 2px; 
+	margin-right: 5px;
 }
 
 /* NEW STYLES */

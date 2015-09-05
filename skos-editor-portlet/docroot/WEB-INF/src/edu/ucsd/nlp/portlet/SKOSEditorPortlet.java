@@ -356,7 +356,7 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 			}
 			baseURI = baseURI.endsWith("#") ? baseURI.substring(0, baseURI.length() - 1) : baseURI;
 
-	    	String kbName = ParamUtil.getString(request, "kbName", "").trim();
+	    	String kbName = ParamUtil.getString(request, "kbName", "").trim().replace(' ', '_');
 	    	if (kbName.isEmpty()) {
 				throw new Exception("kb-name;Please enter knowledge base Name");
 			}

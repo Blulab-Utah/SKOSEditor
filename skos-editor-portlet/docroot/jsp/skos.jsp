@@ -108,11 +108,11 @@
 		<table class="skos-table">
 			<tbody class="vertical">
 				<tr>
-					<td>KB URI: </td>
+					<td><span class='required'>*</span>KB URI: </td>
 					<td><input type="text" name="baseURI" id="base-uri" /> </td>
 				</tr>
 				<tr>
-					<td>KB Name: </td>
+					<td><span class='required'>*</span>KB Name: </td>
 					<td><input type="text" name="kbName" id="kb-name" /> </td> 
 				</tr>
 				<tr>
@@ -133,19 +133,19 @@
 				</tr>
 				<tr>
 					<td>Language: </td>
-					<td><input type="text" name="language"/></td>
+					<td><input type="text" name="language" value='en' /></td>
 				</tr>
 				<tr>
 					<td>Creator: </td>
-					<td><input type="text" name="creator"/></td>
+					<td><input type="text" name="creator" value='${themeDisplay.user.fullName}' /></td>
 				</tr>
 				<tr>
 					<td>Created: </td>
-					<td><input type="text" name="created"/></td>
+					<td><input type="text" name="created" /></td>
 				</tr>
 				<tr>
 					<td>Version: </td>
-					<td><input type="text" name="version" /></td>
+					<td><input type="text" name="version" value='1.0' /></td>
 				</tr>	
 			</tbody>
 	  	</table>

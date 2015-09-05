@@ -1,0 +1,84 @@
+﻿<html>
+	
+<head>
+	<title>Using SKOS Editor</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 4.8.0.849">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SKOS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("UsingSKOSEditor");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Using SKOS Editor</h1>
+				
+				</div>
+			<div id="topic_header_nav">
+				<a href="Deployingtheplugin.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="Settingupuseraccount.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps2"><span class="rvts12">Introduction</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">This brief tutorial is designed to help you get up and running with Web SKOS Editor, a tool designed to support the creation, development, curation, and versioning of small-to-medium sized lexicons using the SKOS (Simple Knowledge Organization System) W3C standard. &nbsp;We will work through some simple examples in order to help you become familiar with the interface. &nbsp;A minimal knowledge of SKOS is probably required to benefit from this tutorial (There are several tutorial introduction to SKOS available). &nbsp; &nbsp;</span></p>
+<p class="rvps5"><span class="rvts16"> &nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="rvps2"><span class="rvts6">All examples used in this tutorial are derived from a use case that involves &nbsp;developing a taxonomy of lexical cues designed to support the automatic identification of symptoms associated with depression from short, informal texts.</span></p>
+<p></p>
+<p class="rvps4"><span class="rvts13">Created with the Personal Edition of HelpNDoc: </span><a class="rvts14" href="http://www.helpndoc.com/feature-tour/iphone-website-generation">Create iPhone web-based documentation</a></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 2015 by Mike Conway. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+
