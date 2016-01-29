@@ -146,6 +146,15 @@
 				var wrapper = document.createElement('div');
 				$(wrapper).addClass('skos-dialog-buttons-block');
 				$('#skos-library-save-form table').parent().append(wrapper);
+				
+				var cancelButton = document.createElement('a');
+				$(wrapper).append(cancelButton);
+				$(cancelButton).attr('href', '#');
+				$(cancelButton).html('Cancel');
+				$(cancelButton).click(function(){
+					$('#skos-library-save-form').dialog('close');
+					return false;
+				});
 	
 				var submitButton = document.createElement('button');
 				$(wrapper).append(submitButton);
@@ -169,17 +178,6 @@
 					return false;
 				});
 	
-				var cancelButton = document.createElement('button');
-				$(wrapper).append(cancelButton);
-				$(cancelButton).addClass('btn');
-				$(cancelButton).addClass('btn-cancel');
-				$(cancelButton).css('margin-left', '10px');
-				$(cancelButton).html('Cancel');
-				$(cancelButton).click(function(){
-					$('#skos-library-save-form').dialog('close');
-					return false;
-				});
-					
 				var waitingImage = document.createElement('div');
 				$(wrapper).append(waitingImage);
 				$(waitingImage).addClass('skos-dialog-buttons-waiting-block');

@@ -196,7 +196,7 @@
 <div id="edit-label-popup" class='skos-edit-popup'>
 	<input type='hidden' id='label-id' />
 	<input type='hidden' id='label-category' />
-	<div id='edit-label-error-box'></div>
+	<div id='edit-label-error-box' class="error-box"></div>
 	<table class="skos-table">
 		<tbody class="vertical">
 			<tr>

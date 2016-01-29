@@ -77,7 +77,7 @@ public class SKOSProject extends SKOSBase {
 	private TreeBean treeBean = null;
 
 	private String showConceptTitleAs = "";
-	private String showConceptTitleLanguageAs = "";
+	private String showConceptTitleLanguageAs = "en";
 	private boolean titleAsSet = false;
 	private boolean titleLanguageAsSet = false;
 	
@@ -355,7 +355,7 @@ public class SKOSProject extends SKOSBase {
 		}
 	}
 
-	public void addTopConcept(String conceptStr, boolean isSilent) {
+	public SKOSConcept addTopConcept(String conceptStr, boolean isSilent) {
 		conceptStr = conceptStr == null ? "" : conceptStr.replace(' ', '_');
 
 		// find scheme
@@ -398,6 +398,8 @@ public class SKOSProject extends SKOSBase {
 				log.error(e);
 			}
 		}
+
+		return concept;
 	}
 	
 	public SKOSEntity getBaseEntity() {
@@ -408,7 +410,7 @@ public class SKOSProject extends SKOSBase {
 		return "http://" + scheme.getURI().getAuthority();
 	}
 	
-	public void addConcept(String conceptName, String parentId, boolean isSilent) {
+	public SKOSConcept addConcept(String conceptName, String parentId, boolean isSilent) {
 
 		SKOSEntity schemeEntity = getBaseEntity();
 		String baseURI = getBaseURI() + "/resource#";
@@ -445,11 +447,12 @@ public class SKOSProject extends SKOSBase {
 				log.error(e);
 			}
 		}
+		return concept;
 	}
 
 	public void processFileChange(String updateType, String conceptURI, String value, String type, String type2, String lang, String details, boolean addToHistory) {
 		// save history
-		log.info(details);
+//		log.info(details);
 		if (addToHistory) {
 			ObjectHistoryLocalServiceUtil.create(skosFileId, userId, updateType, conceptURI, value, type, type2, lang, details);
 		}
@@ -481,8 +484,7 @@ public class SKOSProject extends SKOSBase {
 					owlManager.getOWLDataFactory().getOWLNamedIndividual(IRI.create(SKOSVocabulary.getNamespace() + "/" + conceptName));
 	
 					// add concept assertion
-					String baseURI = "http://"+ URI.create(parentConceptURI).getAuthority()+ "/resource#";
-					SKOSConcept child = skosFactory.getSKOSConcept(URI.create(baseURI + conceptName));
+					SKOSConcept child = skosFactory.getSKOSConcept(URI.create(conceptName));
 					SKOSEntityAssertion conAss = skosFactory.getSKOSEntityAssertion(child);
 					addList.add(new AddAssertion(dataset, conAss));
 	
@@ -520,8 +522,7 @@ public class SKOSProject extends SKOSBase {
 	public void addBroaderConcept(String conceptStr, String parentConceptURI, boolean isSilent) {
 		List<OWLOntologyChange> changes = new ArrayList<OWLOntologyChange>();
 
-		String baseURI = "http://" + URI.create(conceptStr).getAuthority()+ "/resource#";
-		SKOSConcept parent = skosFactory.getSKOSConcept(URI.create(baseURI+ parentConceptURI));
+		SKOSConcept parent = skosFactory.getSKOSConcept(URI.create(parentConceptURI));
 		SKOSConcept child = skosFactory.getSKOSConcept(URI.create(conceptStr));
 		for (SKOSDataset dataset : skosManager.getSKOSDataSets()) {
 			SKOSObjectRelationAssertionImpl ass = (SKOSObjectRelationAssertionImpl) skosFactory.getSKOSObjectRelationAssertion(child,skosFactory.getSKOSBroaderProperty(), parent);
@@ -1311,6 +1312,7 @@ public class SKOSProject extends SKOSBase {
 //				}
 //			}
 //		}
+		// FIXME: possible recursion, try to catch !!!
 		for (SKOSDataset dataset : skosManager.getSKOSDataSets()) {
 			for (SKOSObjectRelationAssertion objectAssertion : dataset.getSKOSObjectRelationAssertions(entity)) {
 				properties.add(objectAssertion);

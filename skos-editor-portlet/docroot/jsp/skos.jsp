@@ -10,8 +10,8 @@
  	 	<ul class="gradient_menu gradient188">
   			<li><a id="create-new-kb" href="#">Create New</a></li>
   			<li><a id="load-from-library" href="#">Load File</a></li>
-			<li><a id="save-to-library" href="#">Save Changes</a></li>
-			<li><a id="save-to-library-as-new" href="#">Save As New</a></li>
+			<li id="save-to-library-menu"><a id="save-to-library" href="#">Save Changes</a></li>
+			<li id="save-to-library-as-new-menu"><a id="save-to-library-as-new" href="#">Save As New</a></li>
 	  	</ul>
 	</li>
   	<li class="topitem spaced_li">
@@ -20,7 +20,8 @@
 		</div>
 		<ul class="gradient_menu gradient188">
   			<li><a id="upload-from-url-link" href="#">From URL</a></li>
-  			<li><a id="upload-skos-file-link" href="#">From Local File</a></li>
+  			<li><a id="upload-skos-file-link" href="#">From SKOS File</a></li>
+  			<li><a id="upload-excel-file-link" href="#">From Excel File</a></li>
 	  	</ul>
 	</li>
 	<li id="skos-share-tools" class="topitem spaced_li">
@@ -28,7 +29,7 @@
 			<div class="arrow"><a href="#">Share</a></div>
 		</div>
 		<ul class="gradient_menu gradient188">
-  			<li><a href="#" onclick="skos_OpenShareNow(); return false;">Share Now</a></li>
+  			<li id="share-now-menu"><a href="#" onclick="skos_OpenShareNow(); return false;">Share Now</a></li>
   			<li><a href="#" onclick="skos_OpenViewSharedFiles(); return false;">View Files</a></li>
 	  	</ul>
 	</li>
@@ -43,7 +44,7 @@
 	</li>
   	<li class="topitem spaced_li">
 		<div class="buttonbg gradient_button gradient36">
-			<a id="interface-help-link" href="#">Help</a>
+			<a id="interface-help-link" href="${pageContext.request.contextPath}/help/SKOS.html" target='_blank'>Help</a>
 		</div>
 	</li>
 	<li id="skos-download-link-menu" class="topitem spaced_li" style="float: right; display: none;">
@@ -177,6 +178,18 @@
 			<tr>
 				<td>
 					<input type="file" name="skosFile" id="upload-skos-file" title="" /> 
+				</td>
+			</tr>
+		</table>   
+	</form>
+	
+	<portlet:actionURL var="uploadExcelFile" name="uploadExcelFile" />
+	<form method='post' id='upload-excel-file-form' action='<%= uploadExcelFile %>' enctype='multipart/form-data'>
+		<div class="portlet-msg-alert">Please select a valid Excel file from your computer</div>
+		<table>
+			<tr>
+				<td>
+					<input type="file" name="excelFile" id="upload-excel-file" title="" /> 
 				</td>
 			</tr>
 		</table>   

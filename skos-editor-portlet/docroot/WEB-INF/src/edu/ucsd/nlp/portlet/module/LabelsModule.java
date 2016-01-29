@@ -60,18 +60,30 @@ public class LabelsModule extends SKOSModule {
 		if (category.equals(SKOSConstants.TYPE_PREFLABEL)) {
 			action = "add-preferred-label";
 			info += " preferred label ";
+			if (isUpdate) {
+				remove(project, labelId, false);
+			}
 			project.addDataPropertyPreferredLabel(concept, value, language, type);
 		} else if (category.equals(SKOSConstants.TYPE_NOTATION)) {
 			action = "add-notation-label";
 			info += " notation ";
+			if (isUpdate) {
+				remove(project, labelId, false);
+			}
 			project.addDataPropertyNotation(concept, value, language, type);
 		} else if (category.equals(SKOSConstants.TYPE_ALTLABEL)) {
 			action = "add-altlabel-label";
 			info += " alternate label ";
+			if (isUpdate) {
+				remove(project, labelId, false);
+			}
 			project.addDataPropertyAlternateLabel(concept, value, language, type);
 		} else if (category.equals(SKOSConstants.TYPE_HIDDENLABEL)) {
 			action = "add-hidden-label";
 			info += " hidden label ";
+			if (isUpdate) {
+				remove(project, labelId, false);
+			}
 			project.addDataPropertyHiddenLabel(concept, value, language, type);
 		} else {
 			action = "add-other-label";
@@ -79,14 +91,15 @@ public class LabelsModule extends SKOSModule {
 			if (type2.isEmpty()) {
 				throw new Exception("Please select a Property Type");
 			}
+			if (isUpdate) {
+				remove(project, labelId, false);
+			}
 			project.addDataPropertyOtherDataProperty(concept, type2, value, language, type);
 		}
 		info += "<span class='history-label'>" + value + "</span>" + (isUpdate ? " in " : " to ") 
 			+ "Concept <span class='history-concept'>" + node.getTitle() + "</span>";
 
-		if (isUpdate) {
-			remove(project, labelId, false);
-		} else {
+		if (!isUpdate) {
 			node.initialize();
 		}
 

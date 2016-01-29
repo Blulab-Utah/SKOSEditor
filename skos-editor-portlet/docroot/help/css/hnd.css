@@ -57,56 +57,97 @@ a.rvts10, span.rvts10
  color: #008000;
  text-decoration: underline;
 }
-a.rvts11, span.rvts11
+span.rvts11
 {
- color: #0000ff;
- text-decoration: underline;
+ font-size: 14pt;
+ font-family: 'Calibri';
+ font-weight: bold;
+ color: #365f91;
 }
 span.rvts12
 {
+ font-family: 'Calibri';
+}
+a.rvts13, span.rvts13
+{
+ font-family: 'Calibri';
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts14
+{
+ font-family: 'Calibri';
  font-weight: bold;
 }
-span.rvts13 /* Font Style */
+span.rvts15
+{
+ font-family: 'Calibri';
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts16 /* Font Style */
 {
  font-family: 'Tahoma', 'Geneva', sans-serif;
  font-style: italic;
  color: #c0c0c0;
 }
-a.rvts14, span.rvts14 /* Font Style */
+a.rvts17, span.rvts17 /* Font Style */
 {
  font-family: 'Tahoma', 'Geneva', sans-serif;
  font-style: italic;
  color: #6666ff;
  text-decoration: underline;
 }
-span.rvts15
-{
- font-size: 12pt;
- font-family: 'Times New Roman', 'Times', serif;
-}
-span.rvts16
-{
- font-family: 'Calibri';
-}
-span.rvts17
-{
- font-family: 'Times New Roman', 'Times', serif;
-}
 span.rvts18
+{
+ font-weight: bold;
+}
+span.rvts19
+{
+ font-family: 'Times New Roman', 'Times', serif;
+}
+a.rvts20, span.rvts20
+{
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts21
 {
  font-family: 'Times New Roman', 'Times', serif;
  color: #0000ff;
  text-decoration: underline;
 }
-span.rvts19
+span.rvts22
 {
  font-family: 'MS Mincho';
 }
-span.rvts20
+span.rvts23
 {
  font-size: 14pt;
  font-family: 'Times New Roman', 'Times', serif;
  font-style: italic;
+ font-weight: bold;
+}
+span.rvts24
+{
+ font-size: 14pt;
+ font-style: italic;
+ font-weight: bold;
+}
+span.rvts25
+{
+ font-size: 12pt;
+ font-family: 'Calibri';
+}
+span.rvts26
+{
+ font-size: 12pt;
+ font-family: 'Calibri';
+}
+span.rvts27
+{
+ font-size: 12pt;
+ font-family: 'Calibri';
  font-weight: bold;
 }
 /* ========== Para Styles ========== */

@@ -28,7 +28,7 @@ function skos_loadLabels() {
 function skos_editLabel(labelId, title, labelValue, labelType, labelLanguage, labelCategory) {
 	$('#label-category').val(labelCategory);
 	$('#label-id').val(labelId);
-	$('#edit-label-title').html((labelId ? 'Edit ' : 'Create ') + title);
+	$('#ui-dialog-title-edit-label-popup').html((labelId ? 'Edit ' : 'New ') + title);
 	$('#label-type').val(labelType);
 	$('#label-language').val(labelLanguage);
 	$('#label-type-block').css('display', (labelCategory == 'otherLabel') ? 'table-row' : 'none');
@@ -64,7 +64,7 @@ function skos_SaveLabel() {
 			skos_HasModified();
 		},
 		function(json) {
-			error.html(json.error).show();
+			error.html(json).show();
 			waiting.hide();
 		}
 	);

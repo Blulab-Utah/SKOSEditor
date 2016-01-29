@@ -111,6 +111,12 @@ body {
 	background-color: yellow;
 }
 
-.rvps2 {
+.rvps4 {
 	display: none;
+}
+
+#topic_content p,
+#topic_content span {
+	font-family: "Calibri";
+	font-size: 12pt;
 }

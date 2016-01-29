@@ -10,6 +10,8 @@ import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -49,6 +51,7 @@ import edu.ucsd.nlp.bean.FilesBean;
 import edu.ucsd.nlp.bean.HistoryBean;
 import edu.ucsd.nlp.bean.SettingsBean;
 import edu.ucsd.nlp.bean.TreeBean;
+import edu.ucsd.nlp.model.ObjectHistory;
 import edu.ucsd.nlp.model.SKOSCollaborationEntry;
 import edu.ucsd.nlp.model.SKOSFile;
 import edu.ucsd.nlp.portlet.action.WizardAction;
@@ -58,12 +61,14 @@ import edu.ucsd.nlp.portlet.module.LabelsModule;
 import edu.ucsd.nlp.portlet.module.RelationsModule;
 import edu.ucsd.nlp.portlet.module.ShareModule;
 import edu.ucsd.nlp.portlet.module.TreeModule;
+import edu.ucsd.nlp.service.ObjectHistoryLocalServiceUtil;
 import edu.ucsd.nlp.service.SKOSCollaborationEntryLocalServiceUtil;
 import edu.ucsd.nlp.service.SKOSFileLocalServiceUtil;
 import edu.ucsd.nlp.service.SKOSSettingLocalServiceUtil;
 import edu.ucsd.nlp.service.SharedFileLocalServiceUtil;
 import edu.ucsd.nlp.skos.SKOSOntology;
 import edu.ucsd.nlp.skos.SKOSProject;
+import edu.ucsd.nlp.util.ImportUtil;
 import edu.ucsd.nlp.util.Util;
 
 public class SKOSEditorPortlet extends LiferayPortlet {
@@ -71,7 +76,9 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 	private static final Log log = LogFactoryUtil.getLog(SKOSEditorPortlet.class);
 	
 	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*\\.(([0-9]{1,3})|([a-zA-Z]{2,3})|(aero|coop|info|museum|name))$");
-
+	
+	private final DateFormat DF = new SimpleDateFormat("MM/dd/yyyy HH:mm a", Locale.ENGLISH);
+	
 	protected static String SKOS_HOME = null;
 	
 	protected String viewJSP = null;
@@ -97,12 +104,26 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException {
 		ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
-//		userId = themeDisplay.getUserId();
 		getPortletContext().getRequestDispatcher(themeDisplay.isSignedIn() ? viewJSP : errorJSP).include(renderRequest, renderResponse);
-//		getSKOSProject(userId) = null;
-//		PROJECTS = new HashMap<Long, SKOSProject>();
 		renderRequest.getPortletSession().removeAttribute("treeBean");
 		renderRequest.getPortletSession().removeAttribute("skosProject");
+
+		// cleanup old locks (locked more than 30 mins ago)
+		try {
+			long count = 0;
+			long d1 = System.currentTimeMillis() / 1000 / 60;
+			for (ObjectHistory obj : ObjectHistoryLocalServiceUtil.getObjectHistories(0, ObjectHistoryLocalServiceUtil.getObjectHistoriesCount())) {
+				if (obj.getType().equals("lock") && ((d1 - obj.getRecorded().getTime() / 1000 / 60) > 30)) {
+					ObjectHistoryLocalServiceUtil.deleteObjectHistory(obj);
+					count ++;
+				}
+			}
+			if (count > 0) {
+				log.info("Auto-cleaned " + count + " locks");
+			}
+		} catch (Exception e) {
+			log.error(e);
+		}
 	}
 	
 	private long getUserId(ResourceRequest request) {
@@ -206,9 +227,9 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 					log.error(e);
 				}
 			} else if (action.equals("load-tree")) {
-				long _DEBUG_START = System.currentTimeMillis();
+//				long _DEBUG_START = System.currentTimeMillis();
 				TreeBean bean = new TreeBean(project);
-				log.info("Tree constructed in " + (System.currentTimeMillis() - _DEBUG_START) / 1000 + " seconds");
+//				log.info("Tree constructed in " + (System.currentTimeMillis() - _DEBUG_START) / 1000 + " seconds");
 				request.setAttribute("treeBean", bean);
 				request.getPortletSession().setAttribute("treeBean", bean);
 				request.getPortletSession().getPortletContext().getRequestDispatcher("/jsp/tree.jsp").include(request, response);
@@ -241,13 +262,13 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 				try {
 					long skosFileId = project.getSkosFileId();
 					if (skosFileId > 0) {
-						long _DEBUG_START = System.currentTimeMillis();
+//						long _DEBUG_START = System.currentTimeMillis();
 						SKOSFile obj = SKOSFileLocalServiceUtil.getSKOSFile(skosFileId);
 						String contents = getFileAsString(request, obj.getName());
 						obj.setContents(contents);
 						obj.setModified(Calendar.getInstance().getTime());
 						SKOSFileLocalServiceUtil.updateSKOSFile(obj);
-						log.info("Auto-saved in " + (System.currentTimeMillis() - _DEBUG_START) / 1000 + " seconds");
+//						log.info("Auto-saved in " + (System.currentTimeMillis() - _DEBUG_START) / 1000 + " seconds");
 					}
 				} catch (Exception e) {
 					log.error(e);
@@ -261,6 +282,8 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 						uploadSKOSFile(request, response);
 					} else if (resourceID.equals("serve-file")) {
 						serveSKOSFile(request, response);
+//					} else if (resourceID.equals("upload-excel-file")) {
+//						uploadExcelFile(request, response);
 					}
 				}
 			}
@@ -347,7 +370,7 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 	}
 
     @ProcessAction(name="createNewKB")
-    public void createNewKB (ActionRequest request, ActionResponse response) throws IOException, PortletException {
+    public void createNewKB(ActionRequest request, ActionResponse response) throws IOException, PortletException {
     	JSONObject json = JSONFactoryUtil.createJSONObject();
     	try {
 	    	String baseURI = ParamUtil.getString(request, "baseURI", "").trim();
@@ -435,7 +458,49 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 		}
 		writeJSON(request, response, json);
     }
-    
+
+    @ProcessAction(name="uploadExcelFile")
+    public void uploadExcelFile(ActionRequest request, ActionResponse response) throws IOException, PortletException {
+    	JSONObject json = JSONFactoryUtil.createJSONObject();
+    	try {
+	    	UploadPortletRequest uploadRequest = PortalUtil.getUploadPortletRequest(request);
+	    	File file = uploadRequest.getFile("excelFile");
+
+	    	SKOSProject project = getSKOSProject(request);
+	    	if (project == null) {
+	    		String kbName = file.getName();
+	    		String directory = getHome();
+				String filePath = directory + File.separator + kbName + ".xml";
+				filePath = filePath.replace("\\", "/");
+				String baseURI = "http://www.w3.org";
+
+		    	SKOSOntology ontology = new SKOSOntology(URI.create(baseURI), kbName, filePath);
+		    	ontology.setCreated("imported on " + DF.format(Calendar.getInstance().getTime()));
+		    	ontology.setCreator("created by Web SKOS Editor");
+		    	ontology.setDescription("This knowledgebase is imported from an Excel file");
+		    	ontology.setLanguage("en");
+		    	ontology.setSubject("");
+		    	ontology.setTitle(file.getName());
+		    	ontology.setVersion("version 1.0");
+
+		    	project = new SKOSProject(ontology);
+
+		    	addSKOSProject(request, project);
+
+		    	TreeBean bean = new TreeBean(project);
+				request.getPortletSession().setAttribute("treeBean", bean);
+	    	}
+	    	
+	    	int imported = (new ImportUtil()).importExcel(project, file);
+	    	file.delete();
+
+	    	json.put("success", "Successfully imported " + imported + " records");
+    	} catch (Exception e) {
+			json.put("error", "upload-excel-file;" + e.getMessage());
+		}
+		writeJSON(request, response, json);
+    }
+
 	private void saveAsRDFXML(ResourceRequest request, ResourceResponse response) throws IOException{
 		JSONObject json = JSONFactoryUtil.createJSONObject();
 		try {
@@ -591,6 +656,9 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 				json.put("skosFileId", "" + file.getSkosFileId());
 				json.put("skosFileVersion", "" + file.getVersion());
 				json.put("skosFileName", "" + file.getName());
+				if (skosFileId < 0) {
+					getSKOSProject(request).setSkosFileId(file.getSkosFileId());
+				}
 			} else if (action.equals("save-before-download")) {
 				long skosFileId = ParamUtil.getLong(request, "id", -1);
 				String fileName = SKOSFileLocalServiceUtil.getSKOSFile(skosFileId).getName();
@@ -598,6 +666,9 @@ public class SKOSEditorPortlet extends LiferayPortlet {
 				SKOSFile file = SKOSFileLocalServiceUtil.getSKOSFile(skosFileId);
 				file.setContents(contents);
 				file = SKOSFileLocalServiceUtil.updateSKOSFile(file);
+				if (skosFileId < 0) {
+					getSKOSProject(request).setSkosFileId(file.getSkosFileId());
+				}
 			} else if (action.equals("delete")) {
 				long skosFileId = ParamUtil.getLong(request, "id", -1);
 				SKOSFileLocalServiceUtil.deleteSKOSFile(skosFileId);

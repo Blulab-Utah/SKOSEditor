@@ -1,0 +1,83 @@
+﻿<html>
+	
+<head>
+	<title>Introduction</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 4.8.0.849">
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SKOS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Introduction");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Introduction</h1>
+				
+				</div>
+			<div id="topic_header_nav">
+				<a href="DownloadingtheeditedSKOSthesauru.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="Preparingapage.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps2"><span class="rvts27">Introduction</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps2"><span class="rvts25">"SKOS Editor" is a standalone deployable portlet plugin application for Liferay portal. Current plugin run on the most recent stabil Liferay Portal 6.2.0 version. </span><br/><span class="rvts25">Portlet is written according to JSR 286 specification. Plugins backend is done in Java, project is compiled under JDK 1.7 version.</span><br/><span class="rvts25"></span><br/><span class="rvts25">Plugins architectute follows a typical MVC pattern, where (M)odel is using Liferays ServiceBuilder feature to handle the database communication through Hibernate. </span><br/><span class="rvts25"></span><br/><span class="rvts25">The database is MySQL 5.6, plugin tables are automatically created by the ServiceBuilder and are of InnoDB type. Portlet is using the database to save files and file </span><br/><span class="rvts25">versions, as well as user specific settings, and collaboration details and history.</span><br/><span class="rvts25"></span><br/><span class="rvts25">The (V)iew part of MVC pattern is implemented as JSP pages and is actively using JSTL tags. The hierarchy tree is implemented in pure JSP, without any third-party </span><br/><span class="rvts25">libraries. Client-side functionality is supported by the latest jQuery library and custom JavaScript code.</span><br/><span class="rvts25"></span><br/><span class="rvts25">The (C)ontroller part is based on Liferays default GenericPortlet implementation.</span><br/><span class="rvts25"></span><br/><span class="rvts25">The plugin is an SPA (Single Page Application). Once loaded, all the further processing is performed on the same page without any reloads. Server and client </span><br/><span class="rvts25">communication is based on Ajax calls using jQuery library from the client-side and Liferay portlet from the server-side.</span><br/><span class="rvts25"><br/></span></p>
+<p class="rvps2"><span class="rvts25"><br/></span></p>
+<p></p>
+<p class="rvps4"><span class="rvts16">Created with the Personal Edition of HelpNDoc: </span><a class="rvts17" href="http://www.helpndoc.com">Free EBook and documentation generator</a></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 2015 by Mike Conway. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

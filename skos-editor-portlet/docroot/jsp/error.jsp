@@ -32,15 +32,9 @@
 	var ajaxURL = '<%= ajaxURL.toString() %>';
 </script>
 
-<style type='text/css'>
-	
-	
-
-</style>
-
 <div class="alert alert-help" style="text-align: center; width: 415px; line-height: 30px; border-radius: 5px; margin: 10px auto 20px; box-shadow: 5px 5px 7px rgb(204, 204, 204); padding: 20px;"> 
 	<h3><span style="color: rgb(105, 105, 105);">Welcome to</span> SKOS Editor</h3> 
-	<h4 style="color: rgb(105, 105, 105); margin-bottom: 20px; line-height: 25px; text-align: center;">SKOS Editor is a plugin for Liferay that allows you to create and edit thesauri or similar artefacts represented in the <span style="border-bottom: 1px solid;">S</span>imple <span style="border-bottom: 1px solid;">K</span>nowledge <span style="border-bottom: 1px solid;">O</span>rganisation <span style="border-bottom: 1px solid;">S</span>ystem</h4> 
+	<h4 style="color: rgb(105, 105, 105); margin-bottom: 20px; line-height: 25px; text-align: center;">SKOS Editor is a plugin for Liferay that allows you to create and edit thesauri or similar artefacts represented in the <span style="border-bottom: 1px solid;">S</span>imple <span style="border-bottom: 1px solid;">K</span>nowledge <span style="border-bottom: 1px solid;">O</span>rganization <span style="border-bottom: 1px solid;">S</span>ystem</h4> 
 	<p> 
 	  <button onclick="location.href='<%= themeDisplay.getURLSignIn() %>';" type="button" class="btn btn-primary">Log In</button>&nbsp;&nbsp;or&nbsp;&nbsp; 
 	  <button onclick="skos_OpenRegister();" type="button" class="btn btn-primary">Create Account</button> 

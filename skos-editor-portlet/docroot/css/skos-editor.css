@@ -415,10 +415,11 @@ a.skos-upload-url-example {
 }
 
 #object-properties-table a, 
-#data-properties-table a {
+#data-properties-table a,
+#object-properties-table div, 
+#data-properties-table div {
 	font-size: 16px;
 }
-
 
 .skos-node {
 	margin-left: 20px;
@@ -821,4 +822,25 @@ table.skos-table tbody td a {
 
 .skos-locked {
 	background: url("/skos-editor-portlet/images/locked.gif") no-repeat scroll 0 2px;
+}
+
+#upload-from-url-link {
+	background: transparent url('/skos-editor-portlet/images/url-file.png') no-repeat scroll 0px 2px; 
+	text-indent: 22px;
+}
+
+#upload-skos-file-link {
+	background: transparent url('/skos-editor-portlet/images/skos-file.png') no-repeat scroll 0px 2px; 
+	text-indent: 22px;
+}
+
+#upload-excel-file-link {
+	background: transparent url('/skos-editor-portlet/images/excel-file.png') no-repeat scroll 0px 2px; 
+	text-indent: 22px;
+}
+
+#save-to-library-menu,
+#save-to-library-as-new-menu,
+#share-now-menu {
+	display: none;
 }

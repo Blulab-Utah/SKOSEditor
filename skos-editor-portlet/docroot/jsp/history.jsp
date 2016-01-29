@@ -11,7 +11,7 @@
 			<c:otherwise>
 				<c:forEach var="obj" items="${bean.objects}">
 					<tr>
-						<td style='width: 180px;'>
+						<td style='width: 250px; text-align: center;'>
 							<fmt:formatDate pattern="MMMM dd, yyyy HH:mm a" value="${obj.recorded}" />
 						</td>
 						<td style='text-align: left; text-indent: 10px;'>

@@ -67,6 +67,36 @@ $(document).ready(function() {
 		}
 	});
 	
+	// 'Upload SKOS File' dialog
+	$('#upload-excel-file-link').SKOSDialog({  
+		formId: 'upload-excel-file-form',
+		title: 'Upload a local Excel file',
+		width: 500,
+		clickHandler: function(){
+			skos_CleanupEditor();
+			$('#upload-excel-file-form-popup').find('.skos-dialog-buttons-waiting-block').show();
+			var formId = 'upload-excel-file-form';
+			var url = $('#upload-excel-file-form').attr('action');
+	        var file = $('#upload-excel-file').val();
+			YUI().use('io-upload-iframe', 'json-parse', function(Y){
+				Y.io(url,{
+					method: 'POST',
+					form: {
+						id: formId,
+						upload: true
+					},
+					on: {
+						complete: function(id, response) {
+							$('#upload-excel-file-form-popup').find('.skos-dialog-buttons-waiting-block').hide();
+							skos_CreateTree();
+							$('#upload-excel-file-form-popup').dialog('close');
+						}
+					}
+				});
+			});
+		}
+	});
+	
 	$('#edit-tree-node-popup').dialog({
 		title : 'Edit Tree',
 		autoOpen : false,
@@ -244,6 +274,10 @@ function skos_CreateTree() {
 				skos_InitTreePopups();
 				skos_InitAssertionPopups();
 				skos_InitLabelPopups();
+				
+				$('#save-to-library-menu').show();
+				$('#save-to-library-as-new-menu').show();
+				$('#share-now-menu').show();
 			});
 		}
 	);
@@ -420,4 +454,8 @@ function skos_AutoSave() {
 function skos_PreloadImage(url) {
     var img = new Image();
     img.src = url;
+}
+
+function skos_UpdateTopMenu(items) {
+	
 }

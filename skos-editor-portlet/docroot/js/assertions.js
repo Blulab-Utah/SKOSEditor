@@ -30,7 +30,7 @@ function skos_editAssertion(type, label, uri, assertionId) {
 	
 	$('#assertion-id').val(assertionId);
 	
-	$('#edit-assertion-popup').find('.title').html(uri ? 'Edit Assertion' : 'Create Assertion');
+	$('#ui-dialog-title-edit-assertion-popup').html(uri ? 'Edit Assertion' : 'New Assertion');
 	
 	$('#assertion-type').removeAttr('disabled').val(type).attr('disabled', true);
 	$('#assertion-label').html(label);
@@ -81,7 +81,7 @@ function skos_SaveAssertion() {
 			skos_HasModified();
 		},
 		function(json) {
-			error.html(json.error).show();
+			error.html(json).show();
 			waiting.hide();
 		}
 	);

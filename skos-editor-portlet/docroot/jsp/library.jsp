@@ -38,7 +38,7 @@
 							${obj.modified}
 						</td>
 						<td style="border-right: none; width: 70px;">
-							<select id="version-${obj.id}" style="width: auto; font-size: 15px; height: 25px; padding: 0px 5px 0px 0px;">
+							<select id="version-${obj.id}" style="width: auto; font-size: 15px; height: 25px; padding: 0px 5px 0px 0px; min-width: 60px;">
 								<c:forEach items="${obj.versions}" var="obj2">
 									<option value="${obj2.skosFileId}">${obj2.version}</option>
 							    </c:forEach>
